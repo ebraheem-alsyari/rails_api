@@ -15,8 +15,6 @@ class Api::V1::ReviewsController < ApplicationController
   def update
   end
 
-  def destroy
-  end
 
 
 
