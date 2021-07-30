@@ -1,0 +1,353 @@
+--- !ruby/object:ActiveRecord::ConnectionAdapters::SchemaCache
+columns:
+  schema_migrations:
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: version
+    sql_type_metadata: &1 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+      sql_type: varchar
+      type: :string
+      limit: 
+      precision: 
+      scale: 
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  ar_internal_metadata:
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: key
+    sql_type_metadata: *1
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: value
+    sql_type_metadata: *1
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - &5 !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: created_at
+    sql_type_metadata: &2 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+      sql_type: datetime(6)
+      type: :datetime
+      limit: 
+      precision: 6
+      scale: 
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - &6 !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: updated_at
+    sql_type_metadata: *2
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  users:
+  - &7 !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: id
+    sql_type_metadata: &4 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+      sql_type: integer
+      type: :integer
+      limit: 
+      precision: 
+      scale: 
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: email
+    sql_type_metadata: *1
+    'null': false
+    default: ''
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: encrypted_password
+    sql_type_metadata: *1
+    'null': false
+    default: ''
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: reset_password_token
+    sql_type_metadata: *1
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: reset_password_sent_at
+    sql_type_metadata: &3 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+      sql_type: datetime
+      type: :datetime
+      limit: 
+      precision: 
+      scale: 
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: remember_created_at
+    sql_type_metadata: *3
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: sign_in_count
+    sql_type_metadata: *4
+    'null': false
+    default: '0'
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: current_sign_in_at
+    sql_type_metadata: *3
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: last_sign_in_at
+    sql_type_metadata: *3
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: current_sign_in_ip
+    sql_type_metadata: *1
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: last_sign_in_ip
+    sql_type_metadata: *1
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - *5
+  - *6
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: authentication_token
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+      sql_type: varchar(30)
+      type: :string
+      limit: 30
+      precision: 
+      scale: 
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: uid
+    sql_type_metadata: *1
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: provider
+    sql_type_metadata: *1
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - &8 !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: image
+    sql_type_metadata: *1
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  books:
+  - *7
+  - *8
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: auther
+    sql_type_metadata: *1
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - &9 !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: title
+    sql_type_metadata: *1
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - *5
+  - *6
+  reviews:
+  - *7
+  - *9
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: content_rating
+    sql_type_metadata: *4
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: recommend_rating
+    sql_type_metadata: *4
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: average_rating
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+      sql_type: float
+      type: :float
+      limit: 
+      precision: 
+      scale: 
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: user_id
+    sql_type_metadata: *4
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::Column
+    name: book_id
+    sql_type_metadata: *4
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - *5
+  - *6
+primary_keys:
+  schema_migrations: version
+  ar_internal_metadata: key
+  users: id
+  books: id
+  reviews: id
+data_sources:
+  schema_migrations: true
+  ar_internal_metadata: true
+  users: true
+  books: true
+  reviews: true
+indexes:
+  schema_migrations: []
+  ar_internal_metadata: []
+  users:
+  - !ruby/object:ActiveRecord::ConnectionAdapters::IndexDefinition
+    table: users
+    name: index_users_on_authentication_token
+    unique: true
+    columns:
+    - authentication_token
+    lengths: {}
+    orders: {}
+    opclasses: {}
+    where: 
+    type: 
+    using: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::IndexDefinition
+    table: users
+    name: index_users_on_reset_password_token
+    unique: true
+    columns:
+    - reset_password_token
+    lengths: {}
+    orders: {}
+    opclasses: {}
+    where: 
+    type: 
+    using: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::IndexDefinition
+    table: users
+    name: index_users_on_email
+    unique: true
+    columns:
+    - email
+    lengths: {}
+    orders: {}
+    opclasses: {}
+    where: 
+    type: 
+    using: 
+    comment: 
+  books: []
+  reviews:
+  - !ruby/object:ActiveRecord::ConnectionAdapters::IndexDefinition
+    table: reviews
+    name: index_reviews_on_book_id
+    unique: false
+    columns:
+    - book_id
+    lengths: {}
+    orders: {}
+    opclasses: {}
+    where: 
+    type: 
+    using: 
+    comment: 
+  - !ruby/object:ActiveRecord::ConnectionAdapters::IndexDefinition
+    table: reviews
+    name: index_reviews_on_user_id
+    unique: false
+    columns:
+    - user_id
+    lengths: {}
+    orders: {}
+    opclasses: {}
+    where: 
+    type: 
+    using: 
+    comment: 
+version: 20210708190455
+database_version: !ruby/object:ActiveRecord::ConnectionAdapters::AbstractAdapter::Version
+  version:
+  - 3
+  - 31
+  - 1
+  full_version_string: 
