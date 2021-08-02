@@ -65,7 +65,7 @@ private
       json_response "Cannot find a review"
     end
   end
-
+# those params will be execution there.
   def review_params
     params.require(:reviews).permit :title, :content_rating, :recommend_rating
   end
