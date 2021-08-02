@@ -6,6 +6,6 @@ class Review < ApplicationRecord
 
 
   def calculate_average_rating
-    self.average_rating = ((self.content_rating.to_f + self.recommend_rating.to_f)/ 2).raound(1)
+    self.average_rating = ((self.content_rating.to_f + self.recommend_rating.to_f)/ 2).round(1)
   end
 end
