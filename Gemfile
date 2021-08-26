@@ -43,3 +43,5 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
 gem 'koala', '~> 3.0'
 gem "faker"
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'counter_culture', '~> 2.0' 

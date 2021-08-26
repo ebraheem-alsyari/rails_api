@@ -3,38 +3,40 @@ class Api::V1::ReviewsController < ApplicationController
   before_action :load_review, only: [:show, :update, :destroy]
   before_action :authenticate_with_token!, only: [:create, :update, :destroy]
 
-  
-  def index
-    @review = @book.reviews
-    json_response "Index reviews successfully", true, {review: @review}, :ok
-  end
 
+  def index
+    @reviews = @book.reviews
+    reviews_serializer = parse_json @reviews
+    json_response "Index reviews successfully", true, {reviews: reviews_serializer}, :ok
+  end
 
   def show
-    json_response "Show review successfully", true, {review: @review}, :ok
+    review_serializer = parse_json @review
+    json_response "Show review successfully", true, {review: review_serializer}, :ok
   end
-
-
+ 
   def create
     review = Review.new review_params
     review.user_id = current_user.id
     review.book_id = params[:book_id]
     if review.save
-      json_response "Create review successfully", true, {review: review}, :ok
+      review_serializer = parse_json review
+      json_response "Created review successfully", true, {review: review_serializer}, :ok
     else
-      json_response "Create review fail", false, {}, :unprocessable_entity
+      json_response "Created review fail", false, {}, :unproccessable_entity
     end
   end
-
+  
   def update
     if correct_user @review.user
       if @review.update review_params
-        json_response "Update review successfully", true, {review: @review}, :ok
+        review_serializer = parse_json @review
+        json_response "Updated review successfully", true, {review: review_serializer}, :ok
       else
-        json_response "Update review fail", false, {}, :unprocessable_entity
+        json_response "Updated review fail", false, {}, :unproccessable_entity
       end
     else
-      json_response "You dont have permissions to do this", false, {}, :unauthorized
+      json_response "You dont have permission to do this", false, {}, :unauthorized
     end
   end
 
@@ -43,14 +45,14 @@ class Api::V1::ReviewsController < ApplicationController
       if @review.destroy
         json_response "Deleted review successfully", true, {}, :ok
       else
-        json_response "Deleted review fail", false, {}, :unprocessable_entity
+        json_response "Deleted review fail", false, {}, :unproccessable_entity
       end
     else
-      json_response "You dont have permissions to do this", false, {}, :unauthorized
+      json_response "You dont have permission to do this", false, {}, :unauthorized
     end
   end
 
-private
+  private
   def load_book
     @book = Book.find_by id: params[:book_id]
     unless @book.present?
@@ -58,15 +60,14 @@ private
     end
   end
 
-
   def load_review
     @review = Review.find_by id: params[:id]
     unless @review.present?
-      json_response "Cannot find a review"
+      json_response "Cannot find a review", false, {}, :not_found
     end
   end
-# those params will be execution there.
+
   def review_params
-    params.require(:reviews).permit :title, :content_rating, :recommend_rating
+    params.require(:review).permit :title, :content_rating, :recommend_rating, :total_reviews
   end
 end

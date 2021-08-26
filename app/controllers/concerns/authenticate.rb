@@ -14,4 +14,3 @@ module Authenticate
       user.id == current_user.id
     end
   end
-  
